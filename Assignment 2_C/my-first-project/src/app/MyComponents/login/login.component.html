@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-center">Login</h1>
+      <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+              <label for="exampleInputname" class="form-label">Enter Username</label>
+              <input type="text" class="form-control" [(ngModel)]="login.username" name="username" id="exampleInputname" required>
+            </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="login.password" name="password" id="exampleInputPassword1" required>
+          </div>
+       
+          <button type="submit" class="btn btn-primary">Login</button>
+
+          <!-- <button type="button" (click)="onRegister()">Register</button> -->
+          <!-- <button (click)="goToRegister()" class="btn btn-primary py-1 px-1 mx-3">Register here</button> -->
+          <span (click)="goToRegister()" style="cursor: pointer; color: blue;" class="mx-2">Register here</span>
+         
+        </form>
+
+      
+  </div>
+  

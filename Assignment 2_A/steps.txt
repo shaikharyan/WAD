@@ -1,0 +1,13 @@
+install git bash
+create github repo
+<shaikharyan><Aryansk@786>
+mkdir WAD  
+cd WAD        
+git --version
+create txt file <name : "Aryan Shaikh";>
+git init   
+git add .
+git remote add origin "https://github.com/shaikharyan/WAD1.git"
+git commit -m "First commit"
+git status
+git push -u origin master

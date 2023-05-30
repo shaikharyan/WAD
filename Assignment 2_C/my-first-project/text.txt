@@ -1,0 +1,6 @@
+1) npm install
+2) npm install -g @angular/cli
+3) ng serve
+
+https://www.easy365manager.com/script-ps1-cannot-be-loaded-because-running-scripts-is-disabled-on-this-system/
+-4) ng server -o

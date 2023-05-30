@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Registration Form</title>
+  </head>
+  <body>
+    <h1>User Registration Form</h1>
+    <form id="user-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      // Get form element
+      const form = document.getElementById('user-form');
+
+      // Add event listener to form submit event
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get form data
+        const name = form.elements.name.value;
+        const email = form.elements.email.value;
+        const password = form.elements.password.value;
+
+        // Create XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+
+        // Set POST request endpoint
+        const endpoint = 'https://jsonplaceholder.typicode.com/users';
+
+        // Set request parameters
+        const data = { name, email, password };
+        const jsonData = JSON.stringify(data);
+        const requestMethod = 'POST';
+
+        // Set event listener to handle response
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 201) {
+              // Store response data in local storage
+              const response = JSON.parse(xhr.responseText);
+              const users = JSON.parse(localStorage.getItem('users')) || [];
+              users.push(response);
+              localStorage.setItem('users', JSON.stringify(users));
+
+              // Redirect to user-list.html page
+              window.location.href = 'user-list.html';
+            } else {
+              console.error('Error:', xhr.statusText);
+            }
+          }
+        };
+
+        // Send POST request
+        xhr.open(requestMethod, endpoint, true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.send(jsonData);
+      });
+    </script>
+  </body>
+</html>

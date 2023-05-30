@@ -1,0 +1,5 @@
+
+1) npm install
+2) npm install -g nodemon
+3) nodemon index.js
+4) Chrome:- Localhost:3000

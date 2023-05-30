@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User List</title>
+  </head>
+  <body>
+    <h1>User List</h1>
+    <ul id="user-list"></ul>
+    <script>
+      // Get user list from local storage
+      const users = JSON.parse(localStorage.getItem('users'));
+
+      // Get user list container element
+      const userList = document.getElementById('user-list');
+
+      // Populate user list
+      if (users && users.length) {
+        for (const user of users) {
+          const listItem = document.createElement('li');
+          listItem.textContent = user.name + ' (' + user.email + ')';
+          userList.appendChild(listItem);
+        }
+      } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'No users found.';
+        userList.appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>
